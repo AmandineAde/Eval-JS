@@ -43,16 +43,27 @@
                 </ul>
                 <div class="sign">
 
+                    <!--Bouton connexion-->
                     <button class="btn fs-3">
                         <!--Petit icône user pour le connexion-->
                         <i class="fa-solid fa-user text-white"></i>
                         <a href="connexion.html">Connexion</a>
                     </button>
+
+                    <!--Bouton inscription-->
                     <button class="btn fs-3">
-                        <!--Petit icône user pour le connexion-->
+                        <!--Petit icône user pour le inscription-->
                         <i class="fa-solid fa-user-pen text-white"></i>
                         <a href="inscription.html">Inscription</a>
                     </button>
+
+                    <!--Bouton cacher deconnexion-->
+                    <button class="btn fs-3 d-none">
+                        <!--Petit icône user pour le déconnexion-->
+                        <i class="fa-solid fa-user-minus text-white"></i>
+                        <a href="inscription.html">Déconnexion</a>
+                    </button>
+
                 </div>
 
             </div>
@@ -61,32 +72,153 @@
 
     <!--FIN NAVBAR-->
 
-    <main>
-        <!--Carousel-->
-        <div id="carouselExampleIndicators" class="carousel slide carousel-dark" data-bs-ride="true">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./Image/19333426.jpg" class="d-block  imgCarou" alt="Illustration">
+
+    <!--Formulaire de connexion qui est cacher-->
+    <div id="connexion" class="row d-none">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h3 class="text-center my-5 fs-1">Connexion : </h3>
+            <form>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Adresse mail ou pseudo : </label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        required>
+                    <div id="emailHelp" class="form-text"> </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="./Image/8741.jpg" class="d-block imgCarou" alt="Illustration">
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Mot de passe : </label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" required>
                 </div>
-                <div class="carousel-item">
-                    <img src="./Image/caroussel.jpg" class="d-block imgCarou" alt="Illustration">
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Se souvenir de moi</label>
                 </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden ">Next</span>
-            </button>
+                <button type="submit" class="btn btn-danger fs-3">Envoyer</button>
+            </form>
         </div>
-        <!--Fin carousel-->
+        <div class="col-4"></div>
+    </div>
+    <!--FFIN de formulaire de connexion qui est cacher-->
+
+
+    <!--Formulaire d'inscription qui est cacher-->
+
+    <div id="inscription" class="row d-none">
+        <div class="col-4"></div>
+
+        <div class="col-4">
+            <h3 class="text-center my-5 fs-1">Inscription: </h3>
+            <form>
+                <!--Radio Homme ou femme-->
+                <div class="row ps-3 mt-5 my-3">
+                    <div class="form-check col-6">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Homme
+                        </label>
+                    </div>
+                    <div class="form-check col-6">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                            checked>
+                        <label class="form-check-label" for="flexRadioDefault2">Femme </label>
+                    </div>
+                </div>
+
+                <!--Formulaire e-mail-->
+                <div class="mb-3">
+                    <label for="exampleInputEmail" class="form-label">Adresse mail : * </label>
+                    <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+                        required>
+                </div>
+
+                <!--Formulaire mdp-->
+                <div class="mb-3">
+                    <label for="exampleInputMdp" class="form-label">Mot de passe : *</label>
+                    <input type="password" class="form-control" id="exampleInputMdp" required>
+                </div>
+
+                <!--Formulaire confirm mdp-->
+                <div class="mb-3">
+                    <label for="exampleInputConfirmMdp" class="form-label">Confirmation du mot de passe : *</label>
+                    <input type="password" class="form-control" id="exampleInputConfirmMdp" required>
+                </div>
+                <!--Formulaire nom et prénom sur la même ligne-->
+                <div class="row">
+                    <div class="mb-3 col-6">
+                        <label for="exampleInputNom" class="form-label">Nom : *</label>
+                        <input type="text" class="form-control" id="exampleInputNom" required>
+                    </div>
+
+                    <div class="mb-3 col-6">
+                        <label for="exampleInputPrenom" class="form-label">Prénom : *</label>
+                        <input type="text" class="form-control" id="exampleInputPrenom" required>
+                    </div>
+                </div>
+
+                <!--Formulaire âge et adresse sur la même ligne-->
+                <div class="row">
+                    <div class="mb-3 col-4">
+                        <label for="exampleInputAge" class="form-label">Âge : </label>
+                        <input type="number" class="form-control" id="exampleInputAge">
+                    </div>
+
+                    <div class="mb-3 col-8">
+                        <label for="exampleInputAdresse" class="form-label">Adresse : </label>
+                        <input type="text" class="form-control" id="exampleInputAdresse">
+                    </div>
+                </div>
+
+                <!--Formulaire ville et code postal sur la même ligne-->
+                <div class="row">
+                    <div class="mb-3 col-6">
+                        <label for="exampleInputVille" class="form-label">Ville : </label>
+                        <input type="text" class="form-control" id="exampleInputVille">
+                    </div>
+
+                    <div class="mb-3 col-6">
+                        <label for="exampleInputCodePostal" class="form-label">Code postal : </label>
+                        <input type="text" class="form-control" id="exampleInputCodePostal">
+                    </div>
+                </div>
+                <p class=>* : champs obligatoires</p>
+                <button type="submit" class="btn btn-danger mt-5 fs-3 ">Envoyer</button>
+                
+            </form>
+        </div>
+
+    </div>
+    <div class="col-4"></div>
+
+    </div>
+
+    <!--Fin de formulaire d'inscription qui est cacher-->
+
+
+    <!--Carousel-->
+    <div id="carouselExampleIndicators" class="carousel slide carousel-dark" data-bs-ride="true">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./Image/19333426.jpg" class="d-block  imgCarou" alt="Illustration">
+            </div>
+            <div class="carousel-item">
+                <img src="./Image/8741.jpg" class="d-block imgCarou" alt="Illustration">
+            </div>
+            <div class="carousel-item">
+                <img src="./Image/caroussel.jpg" class="d-block imgCarou" alt="Illustration">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden ">Next</span>
+        </button>
+    </div>
+    <!--Fin carousel-->
     </main>
 
     <!--Footer-->
@@ -97,7 +229,7 @@
                 <p><a href="#" class=" text-deco fs-6 c-blanc">Accueil</a></p>
                 <p><a href="#" class=" text-deco fs-6 c-blanc">Forum</a></p>
                 <p><a href="#" class=" text-deco fs-6 c-blanc">Questions & Réponses</a></p>
-                <p ><a href="#" class=" text-deco fs-6 c-blanc">Aide</a></p>
+                <p><a href="#" class=" text-deco fs-6 c-blanc">Aide</a></p>
             </div>
 
             <div class="col-6">
