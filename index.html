@@ -74,11 +74,11 @@
 
 
     <!--Formulaire de connexion qui est cacher-->
-    <div id="connexion" class="row d-none">
+    <div  class="row d-nne">
         <div class="col-4"></div>
         <div class="col-4">
             <h3 class="text-center my-5 fs-1">Connexion : </h3>
-            <form>
+            <form id="connexion">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Adresse mail ou pseudo : </label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -95,6 +95,7 @@
                 </div>
                 <button type="submit" class="btn btn-danger fs-3">Envoyer</button>
             </form>
+            <p class="text-danger" id="erreur"></p>
         </div>
         <div class="col-4"></div>
     </div>
@@ -103,12 +104,12 @@
 
     <!--Formulaire d'inscription qui est cacher-->
 
-    <div id="inscription" class="row d-none">
+    <div class="row d-none">
         <div class="col-4"></div>
 
         <div class="col-4">
             <h3 class="text-center my-5 fs-1">Inscription: </h3>
-            <form>
+            <form id="inscription">
                 <!--Radio Homme ou femme-->
                 <div class="row ps-3 mt-5 my-3">
                     <div class="form-check col-6">
