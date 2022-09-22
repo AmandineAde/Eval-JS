@@ -1,18 +1,8 @@
-document.getElementById('connexion').addEventListener('submit', function(e){
-    let erreur;
-    let adresseMail = document.getElementById('exampleInputEmail1');
-    let motDePasse = document.getElementById('exampleInputPassword1');
+function verifConnexion(){
+    var erreur=document.getElementById('erreurConnexion')
+    erreur.innerHTML="";
 
-    if(!adresseMail.value){
-        erreur = "Veuillez renseigner votre adresse mail ou votre pseudo"
-    }
-    if(!motDePasse.value){
-        erreur = "Veuillez renseigner votre mot de passe"
-    }
+    let emailConnexion = document.getElementById('emailConnex');
+    let motDePasseConnexion = document.getElementById('MDPConnex');
 
-    if(erreur){
-        document.getElementById('erreur').innerHTML = erreur;
-    }else{
-        alert('Envoyer')
-    }
-});
+}
