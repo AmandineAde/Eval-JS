@@ -37,7 +37,7 @@
                         <a class="nav-link fs-4 text-white pe-5" aria-current="page" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-4 text-white" href="forum.html">Forum</a>
+                        <a class="nav-link fs-4 text-white d-none" id="forumConnex" href="forum.html">Forum</a>
                     </li>
 
                 </ul>
@@ -65,16 +65,16 @@
                                 <div class="modal-body">
                                     <form id="connexion">
                                         <div class="mb-3">
-                                            <label for="emailConnex" class="form-label">Adresse mail ou pseudo :
+                                            <label for="emailPseudoConnex" class="form-label">Adresse mail ou pseudo :
                                             </label>
-                                            <input type="email" class="form-control" id="emailConnex"
-                                                aria-describedby="emailHelp" required>
+                                            <input type="email" class="form-control" id="emailPseudoConnex"
+                                                aria-describedby="emailHelp" >
                                             <div id="emailHelp" class="form-text"> </div>
                                         </div>
                                         <div class="mb-3">
                                             <label for="MDPConnex" class="form-label">Mot de passe :
                                             </label>
-                                            <input type="password" class="form-control" id="MDPConnex" required>
+                                            <input type="password" class="form-control" id="MDPConnex"  minlength="5">
                                         </div>
                                         <div class="mb-3 form-check">
                                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -84,8 +84,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Fermer</button>
-                                            <button type="submit" class="btn btn-danger ">Envoyer</button>
-                                            <p id="erreurConnexion"></p>
+                                            <button type="button" class="btn btn-danger" id="btnConnex" onclick="verifConnexion() ">Envoyer</button>
                                         </div>
                                     </form>
                                 </div>
@@ -98,7 +97,7 @@
 
                     <!-- BOUTON INCRIPTION -->
                     <button type="button" class="btn fs-3 text-white" data-bs-toggle="modal"
-                        data-bs-target="#modalInscription">
+                        data-bs-target="#modalInscription" id="btnIscr">
                         <!--Petit icône user pour le connexion-->
                         <i class="fa-solid fa-user text-white"></i>
                         S'inscrire
@@ -134,34 +133,38 @@
 
                                         <!--Formulaire e-mail-->
                                         <div class="mb-3">
-                                            <label for="exampleInputEmail" class="form-label">Adresse mail : * </label>
-                                            <input type="email" class="form-control" id="exampleInputEmail"
+                                            <label for="EmailInscription" class="form-label">Adresse mail : * </label>
+                                            <input type="email" class="form-control" id="EmailInscription"
                                                 aria-describedby="emailHelp" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="pseudoInscription" class="form-label">Pseudo : * </label>
+                                            <input type="text" class="form-control" id="pseudoInscription" >
                                         </div>
 
                                         <!--Formulaire mdp-->
                                         <div class="mb-3">
-                                            <label for="exampleInputMdp" class="form-label">Mot de passe : *</label>
-                                            <input type="password" class="form-control" id="exampleInputMdp" required>
+                                            <label for="mdpInscription" class="form-label">Mot de passe : *</label>
+                                            <input type="password"  class="form-control" id="mdpInscription" required minlength="5">
                                         </div>
 
                                         <!--Formulaire confirm mdp-->
                                         <div class="mb-3">
-                                            <label for="exampleInputConfirmMdp" class="form-label">Confirmation du mot
+                                            <label for="confirmMDP" class="form-label">Confirmation du mot
                                                 de passe : *</label>
-                                            <input type="password" class="form-control" id="exampleInputConfirmMdp"
-                                                required>
+                                            <input type="password" class="form-control" id="confirmMDP"
+                                                required minlength="5">
                                         </div>
                                         <!--Formulaire nom et prénom sur la même ligne-->
                                         <div class="row">
                                             <div class="mb-3 col-6">
-                                                <label for="exampleInputNom" class="form-label">Nom : *</label>
-                                                <input type="text" class="form-control" id="exampleInputNom" required>
+                                                <label for="nomInscription" class="form-label">Nom : *</label>
+                                                <input type="text" class="form-control" id="nomInscription" required>
                                             </div>
 
                                             <div class="mb-3 col-6">
-                                                <label for="exampleInputPrenom" class="form-label">Prénom : *</label>
-                                                <input type="text" class="form-control" id="exampleInputPrenom"
+                                                <label for="prenomInscription" class="form-label">Prénom : *</label>
+                                                <input type="text" class="form-control" id="prenomInscription"
                                                     required>
                                             </div>
                                         </div>
@@ -169,34 +172,35 @@
                                         <!--Formulaire âge et adresse sur la même ligne-->
                                         <div class="row">
                                             <div class="mb-3 col-4">
-                                                <label for="exampleInputAge" class="form-label">Âge : </label>
-                                                <input type="number" class="form-control" id="exampleInputAge">
+                                                <label for="ageInscription" class="form-label">Âge : </label>
+                                                <input type="number" class="form-control" id="ageInscription">
                                             </div>
 
                                             <div class="mb-3 col-8">
-                                                <label for="exampleInputAdresse" class="form-label">Adresse : </label>
-                                                <input type="text" class="form-control" id="exampleInputAdresse">
+                                                <label for="adresseInscr" class="form-label">Adresse : </label>
+                                                <input type="text" class="form-control" id="adresseInscr">
                                             </div>
                                         </div>
 
                                         <!--Formulaire ville et code postal sur la même ligne-->
                                         <div class="row">
                                             <div class="mb-3 col-6">
-                                                <label for="exampleInputVille" class="form-label">Ville : </label>
-                                                <input type="text" class="form-control" id="exampleInputVille">
+                                                <label for="villeInscr" class="form-label">Ville : </label>
+                                                <input type="text" class="form-control" id="villeInscr">
                                             </div>
 
                                             <div class="mb-3 col-6">
-                                                <label for="exampleInputCodePostal" class="form-label">Code postal :
+                                                <label for="codePostal" class="form-label">Code postal :
                                                 </label>
-                                                <input type="text" class="form-control" id="exampleInputCodePostal">
+                                                <input type="text" class="form-control" id="codePostal">
                                             </div>
                                         </div>
                                         <p class=>* : champs obligatoires</p>
+                                        <p id="erreur"></p>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Fermer</button>
-                                            <button type="submit" class="btn btn-danger ">Envoyer</button>
+                                            <button type="button" class="btn btn-danger" onclick="verifInscription()">Envoyer</button>
                                         </div>
                                     </form>
                                 </div>
@@ -216,7 +220,6 @@
                         <i class="fa-solid fa-user-minus text-white"></i>
                         Déconnexion
                     </button>
-
                 </div>
 
             </div>
