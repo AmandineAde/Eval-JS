@@ -19,7 +19,7 @@ function verifConnexion() {
     } else if (compte.MotDePasse != mdpConnex.value.trim()) {
         alert('Mot de passe incorrect')
     } else {
-        
+        document.location.href="forum.html";
     }
 }
 
