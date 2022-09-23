@@ -289,6 +289,9 @@ window.addEventListener('load', (event) => {
         for (let index = 0; index < sujets.length; index++) {
             creerCarte(sujets[index])
         }
+        if(!userConnecter()){
+            window.location.replace("index.html")
+        }
     } //si l'user est connecter, creer le bouton deconnexion
     if (userConnecter()) {
         creerDeconnexionBtn()
