@@ -95,12 +95,37 @@ function verifInscription() {
     //Je stocke l'inscritpion dans le local storage
     localStorage.setItem("ForumDeOuf", JSON.stringify(compte));
     console.log(compte);
-    
-}
-
-function contenuForum(){
-    let objet = document.getElementById('objetForumDeOuf');
-    let contenu = document.getElementById('contenuForumDeOuf') ;
-
 
 }
+
+
+if (localStorage.getItem('Objet') != null) {
+    titreObjet.textContent = `${localStorage.getItem('Objet')}`;
+}
+if (localStorage.getItem('Contenu') != null) {
+    titreContenu.textContent = `${localStorage.getItem('Contenu')}`;
+}
+
+envoyerContenu.onclick = () => {
+    var sujets = []
+    if (localStorage.sujets != null) {
+        sujets = JSON.parse(localStorage.sujets);
+    } else {
+        localStorage.sujets = JSON.stringify(sujets)
+    };
+
+
+    let sujetForum = document.getElementById('objetForum')
+    let contenuForum = document.getElementById('contenuForum')
+
+    var sujet = {
+        Sujet: sujetForum.value.trim(),
+        Contenu: contenuForum.value.trim(),
+
+    };
+    sujets.push(sujet);
+    localStorage.sujets = JSON.stringify(sujets)
+    window.location.reload();
+}
+
+

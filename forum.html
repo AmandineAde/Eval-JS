@@ -66,7 +66,7 @@
                         <label for="contenuForum" class="form-label fs-3">Contenu : </label>
                         <textarea class="form-control" id="contenuForum" rows="3"> </textarea>
                     </div>
-                    <button type="submit" class=" mt-5 float-end btn fs-3 bg-black text-white" onclick="contenuForum()">
+                    <button type="button" class=" mt-5 float-end btn fs-3 bg-black text-white" id="envoyerContenu">
                         Envoyer le sujet
                     </button>
                 </div>
@@ -78,8 +78,8 @@
 
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"> </p>
+                        <h5 class="card-title" id="titreObjet"></h5>
+                        <p class="card-text" id="titreContenu"> </p>
                         <div class="like float-end">
                             <button type="submit" class="btn btn-primary">J'aime</button>
                             <button type='submit' class="btn btn-danger">Je n'aime pas</button>
