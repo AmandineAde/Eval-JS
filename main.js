@@ -200,6 +200,7 @@ function addLike(id) {
 //Fonction qui ajoute les dislikes
 function addDislike(id) {
     var sujets = JSON.parse(localStorage.sujets)
+    var sessionUser = JSON.parse(sessionStorage.user)
     let dislike = {
         auteur: sessionUser.Pseudo,
     }
