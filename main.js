@@ -1,5 +1,4 @@
 //btnClick ou Entrer
-
 document.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
         let connexion = document.getElementById("modalConnexion").style.display;
@@ -14,6 +13,7 @@ document.addEventListener("keypress", function (e) {
         }
     }
 });
+
 
 //Verifie la connexion
 function verifConnexion() {
@@ -30,52 +30,58 @@ function verifConnexion() {
         alert('Veuillez entrer votre mot de passe');
         return false;
     };
+    //déclaration de la variable user
     let user = retrouveUser(emailPseudoConnex.value.trim());
 
+    //Si le type d'user est object alors le sessionStorage.user prend la valeur du JSON et la page se refresh
     if (typeof user == "object") {
         if (user.MotDePasse == mdpConnex.value.trim()) {
             sessionStorage.user = JSON.stringify(user);
             window.location.reload();
         }
     } else {
+        //Si pas affiche un messag d'erreur 
         alert('Pseudo ou email incorrect')
     };
 }
 
+//Renvoie soit true si il est != de null soit false si il est égal à null pour creer le bouton de déconnexion
 function userConnecter() {
     return sessionStorage.user != null;
 }
 
-
-
+//Cherche si l'user existe dans le local storage
 function retrouveUser(identifiant) {
     let users = JSON.parse(localStorage.users)
-
     let resultFind = users.find(user => (user.Email === identifiant || user.Pseudo === identifiant));
-
     return resultFind;
 }
 
+
+//Creer le bouton de déconnexion quand on est connecter
 function creerDeconnexionBtn() {
     let text = "";
     let signIn = document.getElementById('signlog-in');
     let forum = document.getElementById('forumConnex');
     let para = document.getElementById('paraConnex')
+    //Enlève la classe disabled sur le forum
     forum.classList.toggle('disabled');
+    //Ajoute la class "display: none sur la paragraphe que annonce que l'on doit se connecter pour accèder au forum"
     para.classList.add('d-none')
-
+    //Le bouton deconnexion s'affiche 
     text += "<button type='submit' class='btn fs-3 text-white' onclick='deconnecting()'><i class='fa-solid fa-user-minus text-white me-2'></i>Déconnexion</button>"
     signIn.innerHTML = text;
 }
 
 
 
-//Quand on clique sur deconnection on retourne sur index 
+//Quand on clique sur deconnection on retourne sur index en vidant le session storage
 function deconnecting() {
     sessionStorage.removeItem("user");
     location.replace('index.html')
 }
 
+// La fonction qui vérifie l'inscription
 function verifInscription() {
     //Je récupère toutes les données d'insciption par leur ID 
     let emailInscr = document.getElementById('EmailInscription');
@@ -120,9 +126,11 @@ function verifInscription() {
         return false;
     }
     //Si l'âge n'est pas compris entre 1 et 135 ans affiche un message
-    if (ageInscr.value.trim() < 1 || ageInscr.value.trim() > 135) {
-        alert('Veuillez entrer un âge compris entre 1 et 135 ans');
-        return false;
+    if (ageInscr.value.trim() != "") {
+        if (ageInscr.value.trim() < 1 || ageInscr.value.trim() > 135) {
+            alert('Veuillez entrer un âge compris entre 1 et 135 ans');
+            return false;
+        }
     };
 
     var users = JSON.parse(localStorage.users)
@@ -141,20 +149,18 @@ function verifInscription() {
 
     users.push(compte)
     localStorage.users = JSON.stringify(users)
+
+    //Affiche la modal de connexion lorqu'on se connecte
+    $("#modalInscription").modal("hide");
+    $("#modalConnexion").modal("show");
 }
 
 let carteCreer = document.getElementById('carteCreer')
 
-if (localStorage.getItem('Objet') != null) {
-    //  titreObjet.textContent = `${localStorage.getItem('Objet')}`;
-}
-if (localStorage.getItem('Contenu') != null) {
-    // titreContenu.textContent = `${localStorage.getItem('Contenu')}`;
-}
-
 
 let envoyerContenu = document.getElementById('envoyerContenu')
 
+//Envoie du sujet qui est stocké en tableau dans le locale storage
 if (envoyerContenu != undefined) {
     envoyerContenu.onclick = () => {
 
@@ -176,15 +182,12 @@ if (envoyerContenu != undefined) {
     }
 }
 
-
-if (carteCreer != null) {
-    console.log(3 + 5)
-}
-
+//Fonction qui ajoute les likes
 function addLike(id) {
     var sujets = JSON.parse(localStorage.sujets)
+    var sessionUser = JSON.parse(sessionStorage.user)
     let like = {
-        auteur: "qql",
+        auteur: sessionUser.Pseudo,
     }
 
 
@@ -192,17 +195,19 @@ function addLike(id) {
     localStorage.sujets = JSON.stringify(sujets)
     window.location.reload();
 }
-
+//Fonction qui ajoute les dislikes
 function addDislike(id) {
     var sujets = JSON.parse(localStorage.sujets)
     let dislike = {
-        auteur: "qql",
+        auteur: sessionUser.Pseudo,
     }
     sujets[id].Dislikes.push(dislike);
     localStorage.sujets = JSON.stringify(sujets)
     window.location.reload();
 }
 
+
+//Fonction qui creer la carte des objet du forum
 function creerCarte(data) {
     let row = document.createElement("div");
     row.classList.add("row");
@@ -257,9 +262,6 @@ function creerCarte(data) {
     iconeDislike.classList.add('fa-solid', 'fa-thumbs-down', "ms-1", "fs-5")
     buttonDislike.appendChild(iconeDislike)
 
-
-
-
     carteCreer.appendChild(row);
 }
 
@@ -279,11 +281,12 @@ window.addEventListener('load', (event) => {
     } else {
         localStorage.sujets = JSON.stringify(sujets)
     };
+    //creer le nombre de carte selon le nombre de sujet
     if (envoyerContenu != null) {
         for (let index = 0; index < sujets.length; index++) {
             creerCarte(sujets[index])
         }
-    }
+    } //si l'user est connecter, creer le bouton deconnexion
     if (userConnecter()) {
         creerDeconnexionBtn()
     }
