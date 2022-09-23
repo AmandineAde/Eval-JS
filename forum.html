@@ -33,20 +33,30 @@
             <!--Quand on réduit la page toute la div va dans le menu burger-->
             <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
                     <li class="nav-item">
-                        <a class="nav-link fs-4 text-white" id="forumConnex" href="forum.html">Forum</a>
+                        <a class="nav-link fs-4 text-white pe-5" aria-current="page" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 text-white disabled" id="forumConnex" href="forum.html">Forum</a>
                     </li>
 
                 </ul>
-
-                <div class="disconnect">
-                    <!--Bouton deconnexion-->
-                    <button type="submit" class="btn fs-3 text-white" onclick="deconnecting()">
-                        <!--Petit icône user pour le déconnexion-->
-                        <i class="fa-solid fa-user-minus text-white me-2"></i>
-                        Déconnexion
+                <div class="sign d-block" id="signlog-in">
+                    <!-- Bouton connexion -->
+                    <button type="button" class="btn fs-3 text-white" data-bs-toggle="modal"
+                        data-bs-target="#modalConnexion">
+                        <!--Petit icône user pour le connexion-->
+                        <i class="fa-solid fa-user text-white"></i>
+                        Connexion
                     </button>
+                    <!-- BOUTON INCRIPTION -->
+                    <button type="button" class="btn fs-3 text-white" data-bs-toggle="modal"
+                        data-bs-target="#modalInscription" id="btnIscr">
+                        <!--Petit icône user pour le connexion-->
+                        <i class="fa-solid fa-user text-white"></i>
+                        S'inscrire
+                    </button>
+
                 </div>
             </div>
         </div>
@@ -54,8 +64,8 @@
 
     <!--DEBUT MAIN-->
     <main>
-        <div class="container">
-            <div class="div row">
+        <div class="container" id="carteCreer">
+            <div class="row mb-5">
                 <div class="col-2"></div>
                 <div class="col-8 mt-5">
                     <div class="mb-3" id="objetForumDeOuf">
@@ -72,21 +82,7 @@
                 </div>
                 <div class="col-3"></div>
             </div>
-            <div class="row mt-5">
-                <div class="card">
-                    <div class="card-header">
-
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title" id="titreObjet"></h5>
-                        <p class="card-text" id="titreContenu"> </p>
-                        <div class="like float-end">
-                            <button type="submit" class="btn btn-primary">J'aime</button>
-                            <button type='submit' class="btn btn-danger">Je n'aime pas</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
 
