@@ -67,7 +67,9 @@ function creerDeconnexionBtn() {
     //Enlève la classe disabled sur le forum
     forum.classList.toggle('disabled');
     //Ajoute la class "display: none sur la paragraphe que annonce que l'on doit se connecter pour accèder au forum"
-    para.classList.add('d-none')
+    if (para != null){
+        para.classList.add('d-none')
+    }
     //Le bouton deconnexion s'affiche 
     text += "<button type='submit' class='btn fs-3 text-white' onclick='deconnecting()'><i class='fa-solid fa-user-minus text-white me-2'></i>Déconnexion</button>"
     signIn.innerHTML = text;
