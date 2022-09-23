@@ -37,11 +37,11 @@
                         <a class="nav-link fs-4 text-white pe-5" aria-current="page" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-4 text-white d-none" id="forumConnex" href="forum.html">Forum</a>
+                        <a class="nav-link fs-4 text-white disabled" id="forumConnex" href="forum.html">Forum</a>
                     </li>
 
                 </ul>
-                <div class="sign d-block">
+                <div class="sign d-block" id="signlog-in">
 
                     <!--DEBUT DES MODAL-->
                     <!-- Bouton connexion -->
@@ -213,7 +213,7 @@
 
 
                 </div>
-                <div class="disconnect d-none">
+                <div class="d-none" id="disconnect">
                     <!--Bouton cacher deconnexion-->
                     <button class="btn fs-3">
                         <!--Petit icône user pour le déconnexion-->
@@ -269,7 +269,7 @@
             <div class="col-6">
                 <p class="fs-3 c-blanc">Catégorie</p>
                 <p><a href="#" class=" text-deco fs-6 c-blanc">Accueil</a></p>
-                <p><a href="#" class=" text-deco fs-6 c-blanc">Forum</a></p>
+                <p><a href="forum.html" class=" text-deco fs-6 c-blanc disabled">Forum</a></p>
                 <p><a href="#" class=" text-deco fs-6 c-blanc">Questions & Réponses</a></p>
                 <p><a href="#" class=" text-deco fs-6 c-blanc">Aide</a></p>
             </div>

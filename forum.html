@@ -33,18 +33,16 @@
             <!--Quand on réduit la page toute la div va dans le menu burger-->
             <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link fs-4 text-white pe-5" aria-current="page" href="index.html">Accueil</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link fs-4 text-white" id="forumConnex" href="forum.html">Forum</a>
                     </li>
 
                 </ul>
-                
+
                 <div class="disconnect">
                     <!--Bouton deconnexion-->
-                    <button class="btn fs-3 text-white">
+                    <button type="submit" class="btn fs-3 text-white" onclick="deconnecting()">
                         <!--Petit icône user pour le déconnexion-->
                         <i class="fa-solid fa-user-minus text-white me-2"></i>
                         Déconnexion
@@ -54,8 +52,46 @@
         </div>
     </nav>
 
+    <!--DEBUT MAIN-->
+    <main>
+        <div class="container">
+            <div class="div row">
+                <div class="col-2"></div>
+                <div class="col-8 mt-5">
+                    <div class="mb-3" id="objetForumDeOuf">
+                        <label for="objetForum" class="form-label fs-3">Objet :</label>
+                        <input type="text" class="form-control" id="objetForum" placeholder="Objet...">
+                    </div>
+                    <div class="mb-2" id="contenuForumDeOuf">
+                        <label for="contenuForum" class="form-label fs-3">Contenu : </label>
+                        <textarea class="form-control" id="contenuForum" rows="3"> </textarea>
+                    </div>
+                    <button type="submit" class=" mt-5 float-end btn fs-3 bg-black text-white" onclick="contenuForum()">
+                        Envoyer le sujet
+                    </button>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row mt-5">
+                <div class="card">
+                    <div class="card-header">
+
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"> </p>
+                        <div class="like float-end">
+                            <button type="submit" class="btn btn-primary">J'aime</button>
+                            <button type='submit' class="btn btn-danger">Je n'aime pas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
+    </main>
+    <!-- FIN MAIN-->
 
 
     <!--Footer-->
@@ -63,7 +99,6 @@
         <div class="row espacement">
             <div class="col-6">
                 <p class="fs-3 c-blanc">Catégorie</p>
-                <p><a href="#" class=" text-deco fs-6 c-blanc">Accueil</a></p>
                 <p><a href="#" class=" text-deco fs-6 c-blanc">Forum</a></p>
                 <p><a href="#" class=" text-deco fs-6 c-blanc">Questions & Réponses</a></p>
                 <p><a href="#" class=" text-deco fs-6 c-blanc">Aide</a></p>
