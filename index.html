@@ -5,23 +5,266 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Accueil</title>
+    <!--Lien css-->
     <link rel="stylesheet" href="style.css">
-    <!-- CSS only -->
+    <!--Lien CSS pour bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!--Lien pour les icone de font awesome-->
     <script src="https://kit.fontawesome.com/d28e7484ad.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
+    <!--Création de la navbar-->
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+            <div class="col-4">
+                <img src="./Image/logo.png" alt="Logo">
+                <a class="navbar-brand fs-1 text-white" href="index.html">Forum de Ouf</a>
+            </div>
+            <!--Quand on réduit la page il y a un menu burger-->
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <!--Quand on réduit la page toute la div va dans le menu burger-->
+            <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 text-white pe-5" aria-current="page" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 text-white disabled" id="forumConnex" href="forum.html">Forum</a>
+                    </li>
+
+                </ul>
+                <div class="sign d-block" id="signlog-in">
+                    <!-- Bouton connexion -->
+                    <button type="button" class="btn fs-3 text-white" data-bs-toggle="modal"
+                        data-bs-target="#modalConnexion">
+                        <!--Petit icône user pour le connexion-->
+                        <i class="fa-solid fa-user text-white"></i>
+                        Connexion
+                    </button>
+                    <!-- BOUTON INCRIPTION -->
+                    <button type="button" class="btn fs-3 text-white" data-bs-toggle="modal"
+                        data-bs-target="#modalInscription" id="btnIscr">
+                        <!--Petit icône user pour le connexion-->
+                        <i class="fa-solid fa-user text-white"></i>
+                        S'inscrire
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--FIN NAVBAR-->
 
 
 
-    <!-- JavaScript Bundle with Popper -->
+    <main>
+        <p class="text-center fs-1 mt-5" id="paraConnex">Veuillez vous connectez pour accéder au forum</p>
+        <!--Carousel-->
+        <div id="carouselExampleIndicators" class="carousel slide carousel-dark" data-bs-ride="true">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./Image/19333426.jpg" class="d-block  imgCarou" alt="Illustration">
+                </div>
+                <div class="carousel-item">
+                    <img src="./Image/8741.jpg" class="d-block imgCarou" alt="Illustration">
+                </div>
+                <div class="carousel-item">
+                    <img src="./Image/caroussel.jpg" class="d-block imgCarou" alt="Illustration">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden ">Next</span>
+            </button>
+        </div>
+        <!--Fin carousel-->
+    </main>
+
+    <!-- MODAL POUR L'INSCRIPTION -->
+    <div class="modal fade" id="modalInscription" tabindex="-1" aria-labelledby="modalInscription" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalInscription"> Inscription :</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="inscription">
+                        <!--Radio Homme ou femme-->
+                        <div class="row ps-3 mt-5 my-3">
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Homme
+                                </label>
+                            </div>
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">Femme </label>
+                            </div>
+                        </div>
+
+                        <!--Formulaire e-mail-->
+                        <div class="mb-3">
+                            <label for="EmailInscription" class="form-label">Adresse mail : * </label>
+                            <input type="email" class="form-control" id="EmailInscription" aria-describedby="emailHelp"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pseudoInscription" class="form-label">Pseudo : * </label>
+                            <input type="text" class="form-control" id="pseudoInscription" required>
+                        </div>
+
+                        <!--Formulaire mdp-->
+                        <div class="mb-3">
+                            <label for="mdpInscription" class="form-label">Mot de passe : *</label>
+                            <input type="password" class="form-control" id="mdpInscription" required minlength="5">
+                        </div>
+
+                        <!--Formulaire confirm mdp-->
+                        <div class="mb-3">
+                            <label for="confirmMDP" class="form-label">Confirmation du mot
+                                de passe : *</label>
+                            <input type="password" class="form-control" id="confirmMDP" required minlength="5">
+                        </div>
+                        <!--Formulaire nom et prénom sur la même ligne-->
+                        <div class="row">
+                            <div class="mb-3 col-6">
+                                <label for="nomInscription" class="form-label">Nom : *</label>
+                                <input type="text" class="form-control" id="nomInscription" required>
+                            </div>
+
+                            <div class="mb-3 col-6">
+                                <label for="prenomInscription" class="form-label">Prénom : *</label>
+                                <input type="text" class="form-control" id="prenomInscription" required>
+                            </div>
+                        </div>
+
+                        <!--Formulaire âge et adresse sur la même ligne-->
+                        <div class="row">
+                            <div class="mb-3 col-4">
+                                <label for="ageInscription" class="form-label">Âge : </label>
+                                <input type="number" class="form-control" id="ageInscription">
+                            </div>
+
+                            <div class="mb-3 col-8">
+                                <label for="adresseInscr" class="form-label">Adresse : </label>
+                                <input type="text" class="form-control" id="adresseInscr">
+                            </div>
+                        </div>
+
+                        <!--Formulaire ville et code postal sur la même ligne-->
+                        <div class="row">
+                            <div class="mb-3 col-6">
+                                <label for="villeInscr" class="form-label">Ville : </label>
+                                <input type="text" class="form-control" id="villeInscr">
+                            </div>
+
+                            <div class="mb-3 col-6">
+                                <label for="codePostal" class="form-label">Code postal :
+                                </label>
+                                <input type="text" class="form-control" id="codePostal">
+                            </div>
+                        </div>
+                        <p class=>* : champs obligatoires</p>
+                        <p id="erreur"></p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-danger" id="btnInscription"
+                                onclick="verifInscription()">Envoyer</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--FIN MODAL-->
+
+    <!-- MODAL POUR LA CONNEXION -->
+    <div class="modal fade" id="modalConnexion" tabindex="-1" aria-labelledby="modalConnexion" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalConnexion">Connexion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="connexion">
+                        <div class="mb-3">
+                            <label for="emailPseudoConnex" class="form-label">Adresse mail ou pseudo :
+                            </label>
+                            <input type="email" class="form-control" id="emailPseudoConnex"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text"> </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="MDPConnex" class="form-label">Mot de passe :
+                            </label>
+                            <input type="password" class="form-control" id="MDPConnex" minlength="5">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Se souvenir de
+                                moi</label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-danger" id="btnConnex"
+                                onclick="verifConnexion() ">Envoyer</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--Footer-->
+    <footer>
+        <div class="row espacement">
+            <div class="col-6">
+                <p class="fs-3 c-blanc">Catégorie</p>
+                <p><a href="#" class=" text-deco fs-6 c-blanc">Accueil</a></p>
+                <p><a href="forum.html" class=" text-deco fs-6 c-blanc disabled">Forum</a></p>
+                <p><a href="#" class=" text-deco fs-6 c-blanc">Questions & Réponses</a></p>
+                <p><a href="#" class=" text-deco fs-6 c-blanc">Aide</a></p>
+            </div>
+
+            <div class="col-6">
+                <p class="fs-3 c-blanc">Nous contacter :</p>
+                <p class="fs-6 c-blanc">19 Avenue du Génral de Gaulle, Tataouchnok</p>
+                <p class="fs-6 c-blanc">55999, France</p>
+            </div>
+
+        </div>
+
+
+    </footer>
+    <!--FIN Footer-->
+    <!--Lien JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- Lien JS pour bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
     </script>
+    <!--Lien js-->
     <script src="main.js"></script>
 </body>
 
