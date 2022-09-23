@@ -97,6 +97,13 @@ function verifInscription() {
     let codePostInscr = document.getElementById('codePostal');
     let adresseInscr = document.getElementById('adresseInscr');
 
+    let mailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    if(!mailRegex.test(emailInscr.value.trim())){
+        alert('Veuillez entrer une adresse mail valide')
+        return false;
+    }
+
     //Si l'email est vide affiche un message
     if (emailInscr.value.trim() == "") {
         alert('Veuillez entrer votre adresse mail');
