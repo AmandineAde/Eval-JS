@@ -93,4 +93,6 @@ footer{
 	padding-right: 300px;
 }
 
-
+a{
+	text-decoration: none !important;
+}

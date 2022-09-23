@@ -5,23 +5,117 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Accueil</title>
+    <!--Lien css-->
     <link rel="stylesheet" href="style.css">
-    <!-- CSS only -->
+    <!--Lien CSS pour bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!--Lien pour les icone de font awesome-->
     <script src="https://kit.fontawesome.com/d28e7484ad.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
+    <!--Création de la navbar-->
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+            <div class="col-4">
+                <img src="./Image/logo.png" alt="Logo">
+                <a class="navbar-brand fs-1 text-white" href="index.html">Forum de Ouf</a>
+            </div>
+            <!--Quand on réduit la page il y a un menu burger-->
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <!--Quand on réduit la page toute la div va dans le menu burger-->
+            <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 text-white pe-5" aria-current="page" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 text-white disabled" id="forumConnex" href="forum.html">Forum</a>
+                    </li>
+
+                </ul>
+                <div class="sign d-block" id="signlog-in">
+                    <!-- Bouton connexion -->
+                    <button type="button" class="btn fs-3 text-white" data-bs-toggle="modal"
+                        data-bs-target="#modalConnexion">
+                        <!--Petit icône user pour le connexion-->
+                        <i class="fa-solid fa-user text-white"></i>
+                        Connexion
+                    </button>
+                    <!-- BOUTON INCRIPTION -->
+                    <button type="button" class="btn fs-3 text-white" data-bs-toggle="modal"
+                        data-bs-target="#modalInscription" id="btnIscr">
+                        <!--Petit icône user pour le connexion-->
+                        <i class="fa-solid fa-user text-white"></i>
+                        S'inscrire
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--DEBUT MAIN-->
+    <main>
+        <div class="container" id="carteCreer">
+            <div class="row mb-5">
+                <div class="col-2"></div>
+                <div class="col-8 mt-5">
+                    <div class="mb-3" id="objetForumDeOuf">
+                        <label for="objetForum" class="form-label fs-3">Objet :</label>
+                        <input type="text" class="form-control" id="objetForum" placeholder="Objet...">
+                    </div>
+                    <div class="mb-2" id="contenuForumDeOuf">
+                        <label for="contenuForum" class="form-label fs-3">Contenu : </label>
+                        <textarea class="form-control" id="contenuForum" rows="3"> </textarea>
+                    </div>
+                    <button type="button" class=" mt-5 float-end btn fs-3 bg-black text-white" id="envoyerContenu">
+                        Envoyer le sujet
+                    </button>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            
+        </div>
 
 
+    </main>
+    <!-- FIN MAIN-->
 
-    <!-- JavaScript Bundle with Popper -->
+
+    <!--Footer-->
+    <footer>
+        <div class="row espacement">
+            <div class="col-6">
+                <p class="fs-3 c-blanc">Catégorie</p>
+                <p><a href="#" class=" text-deco fs-6 c-blanc">Forum</a></p>
+                <p><a href="#" class=" text-deco fs-6 c-blanc">Questions & Réponses</a></p>
+                <p><a href="#" class=" text-deco fs-6 c-blanc">Aide</a></p>
+            </div>
+
+            <div class="col-6">
+                <p class="fs-3 c-blanc">Nous contacter :</p>
+                <p class="fs-6 c-blanc">19 Avenue du Génral de Gaulle, Tataouchnok</p>
+                <p class="fs-6 c-blanc">55999, France</p>
+            </div>
+
+        </div>
+
+
+    </footer>
+    <!--FIN Footer-->
+    <!-- Lien JS pour bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
     </script>
+    <!--Lien js-->
     <script src="main.js"></script>
 </body>
 
